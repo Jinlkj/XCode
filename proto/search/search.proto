@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package search;
+option go_package = "code-search/proto/search";
+
+service SearchService {
+  rpc Search (SearchRequest) returns (SearchResponse) {}
+}
+
+message SearchRequest {
+  string query = 1;
+}
+
+message SearchResponse {
+  repeated SearchResult results = 1;
+}
+
+message SearchResult {
+  string license = 1;
+  int32 stars = 2;
+  string highlight = 3;
+  string repo_name = 4;
+  string repo_path = 5;
+  string language = 6;
+} 
